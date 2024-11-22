@@ -7,7 +7,7 @@ import { Customer } from '../model/Customer.model';
 })
 export class CartService {
 
-  private cartList: Training[] = [];
+  private cartMap: Map<number, Training> = new Map(); // Utilisation d'une HashMap
   private customer: Customer = {
     name: '',
     firstName: '',
@@ -21,25 +21,37 @@ export class CartService {
 
    }
   loadCartFromLocalStorage() {
-    const cartData = localStorage.getItem('cartList');
+    const cartData = localStorage.getItem('cartMap');
     if (cartData) {
-      this.cartList = JSON.parse(cartData);
+      const parsedData: [number, Training][] = JSON.parse(cartData);
+      this.cartMap = new Map(parsedData);// Reconstruire le Map depuis localStorage
     }
   }
 
   addTraining(training: Training){
-    this.cartList.push(training);
+    if (this.cartMap.has(training.id)) {
+      // Si la formation existe déjà, mettre à jour la quantité
+      const existingTraining = this.cartMap.get(training.id);
+      if (existingTraining) {
+        existingTraining.quantity = training.quantity;
+        this.cartMap.set(training.id, existingTraining);
+      }
+    } else {
+      // Sinon, ajouter la formation
+      this.cartMap.set(training.id, training);
+    }
     this.saveCartToLocalStorage(); // Sauvegarde le panier
-  }
-  saveCartToLocalStorage() {
-    localStorage.setItem('cartList', JSON.stringify(this.cartList));
-  }
-  getCartList(){
-    return this.cartList;
   }
   removeFromCart(id: number) {
-    this.cartList = this.cartList.filter(training => training.id !== id);
+    this.cartMap.delete(id); // Supprimer via la clé
     this.saveCartToLocalStorage(); // Sauvegarde le panier
+  }
+  getCartList(): Training[]{
+    return Array.from(this.cartMap.values()); // Convertir en tableau pour l'affichage
+  }
+  saveCartToLocalStorage() {
+    const cartArray = Array.from(this.cartMap.entries()); // Convertir en tableau [clé, valeur]
+    localStorage.setItem('cartMap', JSON.stringify(cartArray));
   }
 
   saveCustomer(customer: Customer) {
@@ -51,7 +63,7 @@ export class CartService {
     return this.customer;
   }
   clearCart() {
-    this.cartList = [];
+    this.cartMap.clear(); // Vider la HashMap
     this.saveCartToLocalStorage(); // Sauvegarde le panier
   }
   private loadCustomerFromLocalStorage() {
@@ -59,5 +71,12 @@ export class CartService {
     if (customerData) {
       this.customer = JSON.parse(customerData);
     }
+  }
+  getAmount(){
+    var result = 0;
+    this.getCartList().forEach(e => {
+      result += e.price*e.quantity;
+    });
+    return result;
   }
 }

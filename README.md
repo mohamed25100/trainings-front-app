@@ -37,3 +37,7 @@ Angular CLI: 13.0.4
 Node: 16.13.1
 Package Manager: npm 8.1.2
 OS: win32 x64
+
+npm install json-server@0.17.0
+
+npm install concurrently --save-dev

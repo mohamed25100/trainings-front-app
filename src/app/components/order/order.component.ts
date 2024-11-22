@@ -8,29 +8,30 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {
-  
+  showModal = false;
+  modalTitle = 'Commande confirmée';
+  modalContent = 'Votre commande a bien été prise en compte, merci de nous avoir donné : ';
+  modalData : any;
   customer: any;
   cartList: any;
   total: number | undefined;
-  date: string;
-  constructor(private cartService: CartService,private router : Router) {
-    this.date = '';
-  }
+  dateOrder : Date = new Date();
+  constructor(private cartService: CartService,private router : Router) { }
 
   ngOnInit(): void {
     this.customer = this.cartService.getCustomer();
     this.cartList = this.cartService.getCartList();
     this.total = this.cartList.reduce((sum: number, item: any) => sum + item.price * item.quantity, 0);
-    const now = new Date();
-    const day = now.getDate().toString().padStart(2, '0');
-    const month = (now.getMonth() + 1).toString().padStart(2, '0');
-    const year = now.getFullYear();
-
-    this.date = `${day}/${month}/${year}`;
   }
-  confirmOrder() {
-    alert('Commande confirmée!');
+  onOrder(){
+    this.modalData = this.cartService.getAmount();
+    this.showModal = true;
+  }
+  onModalClose() : void {
+    this.showModal = false;
     this.cartService.clearCart();
     this.router.navigateByUrl('');
+    console.log("Back to the future !");
+    
   }
 }

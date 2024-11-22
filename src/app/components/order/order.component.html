@@ -22,7 +22,7 @@
                         <td>Email : {{customer.email}}</td>
                     </tr>
                     <tr>
-                        <td>Numéro de commande : ??? <br>Date de la commande : {{date}}</td>
+                        <td>Numéro de commande : ??? <br>Date de la commande : {{dateOrder | date:"MM/dd/yy"}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -42,20 +42,26 @@
                         <td>{{training.name}}</td>
                         <td>{{training.description}}</td>
                         <td>{{training.quantity}}</td>
-                        <td>{{training.price}}</td>
+                        <td>{{training.price | number:'0.2'}}</td>
                     </tr>
                     <tr>
                         <td>Total</td>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td>{{total}}</td>
+                        <td>{{total | currency:'EUR'}}</td>
                     </tr>
                     <tr>
-                        <td><a class="btn btn-success" (click)="confirmOrder()">Confirmer la commande</a></td>
+                        <td><a class="btn btn-success" (click)="onOrder()">Confirmer la commande</a></td>
                     </tr>
                 </tbody>
             </table>
         </ng-container>
     </div>
 </div>
+<app-modal-order *ngIf="showModal" 
+    [title]="modalTitle"
+    (close)="onModalClose()">
+    <p>{{modalContent}}</p>
+    <p>Montant total : {{modalData}}</p>
+</app-modal-order>

@@ -1,0 +1,21 @@
+<div class="container">
+    <h3 *ngIf="isEditMode">Edit Training</h3>
+    <h3 *ngIf="!isEditMode">Add Training</h3>
+    <form (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input id="name" class="form-control" [(ngModel)]="training.name" name="name" required />
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea id="description" class="form-control" [(ngModel)]="training.description" name="description" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input id="price" type="number" class="form-control" [(ngModel)]="training.price" name="price" required />
+      </div>
+      <button class="btn btn-primary" type="submit">Save</button>
+      <button class="btn btn-secondary" type="button" (click)="router.navigate(['/admin'])">Cancel</button>
+    </form>
+  </div>
+  
