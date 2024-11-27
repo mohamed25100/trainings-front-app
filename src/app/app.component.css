@@ -1,0 +1,39 @@
+nav a{
+    color: white;
+    text-decoration: none;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+}
+nav li a{
+    border-radius: 10px;
+    border: 2px solid white;
+    padding: 10px 20px;
+}
+nav ul {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+nav{
+    background: linear-gradient(180deg, rgba(17,17,35,1) 0%, rgba(17,17,35,0.7) 50%, rgba(102,102,102,0) 100%);    color: white;
+    padding: 30px;
+    position: fixed;
+    width: 100%;
+}
+footer{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 30px;
+}
+footer ul{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+footer svg{
+    width: 20px;
+}

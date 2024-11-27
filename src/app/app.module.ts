@@ -14,6 +14,7 @@ import { ModalOrderComponent } from './components/order/modal-order/modal-order.
 import { AdminComponent } from './components/admin/admin.component';
 import { LoginComponent } from './components/login/login.component';
 import { AddEditComponent } from './components/add-edit/add-edit.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -26,14 +27,15 @@ import { AddEditComponent } from './components/add-edit/add-edit.component';
     ModalOrderComponent,
     AdminComponent,
     LoginComponent,
-    AddEditComponent
+    AddEditComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
