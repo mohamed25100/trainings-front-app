@@ -1,0 +1,29 @@
+.container {
+    padding-top: 5rem;
+    width: 70rem;
+}
+.container-delete-cart {
+    text-align: end;
+}
+.btn-danger {
+    background-color: #a00;
+    margin-left: 1rem;
+}
+.delete-cart {
+    background-color: transparent;
+    color: #a00;
+    margin-right: 1rem;
+}
+table {
+    table-layout: auto;
+}
+.align-quantity {
+text-align: center;
+}
+.align-price {
+    text-align: right;
+}
+
+.total{
+    font-weight: 600;
+}

@@ -12,7 +12,7 @@ import { CartService } from 'src/app/services/cart.service';
 export class CartComponent implements OnInit {
   cartList : Training[] | undefined;
   total :  number | undefined;
-  constructor(private cartService : CartService,private authService: AuthenticateService,private router:Router) { }
+  constructor(public cartService : CartService,private authService: AuthenticateService,private router:Router) { }
 
   ngOnInit(): void {
     this.cartList = this.cartService.getCartList();

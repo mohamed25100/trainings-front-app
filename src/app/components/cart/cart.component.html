@@ -1,9 +1,17 @@
 <div class="container">
-    <ng-container *ngIf="cartList">
+    <ng-container *ngIf="cartList && cartList.length>0">
+        <div class=" container-delete-cart">
+        <a class="btn btn-danger delete-cart" (click)="cartService.clearCart(); loadCart()">Vider mon panier</a>
+    </div>
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
-                    <th>ID</th><th>Name</th><th>DESCRIPTION</th><th>Quantity</th><th>Price</th>
+                    <th width="48px">ID</th>
+                    <th width="192px">NOM</th>
+                    <th width="360px">DESCRIPTION</th>
+                    <th class="align-quantity" width="40px">QUANTITÉ</th>
+                    <th class="align-price" width="96px">Prix T.T.C.</th>
+                    <th width="64px"></th>
                 </tr>
             </thead>
             <tbody>
@@ -11,19 +19,24 @@
                     <td>{{training.id}}</td>
                     <td>{{training.name}}</td>
                     <td>{{training.description}}</td>
-                    <td>{{training.quantity}}</td>
-                    <td>{{training.price | number:'0.2'}}</td>
+                    <td class="align-quantity" >{{training.quantity}}</td>
+                    <td  class="align-price" >{{training.price | number:'0.2'}} €</td>
                     <td><a class="btn btn-danger" (click)="deleteFromCartById(training.id)">Supprimer</a></td>
                 </tr>
                 <tr>
-                    <td>Total</td>
+                    <td class="total">Total</td>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>{{total | currency:'EUR'}}</td>
+                    <td class="total align-price" >{{total | number:'0.2'}} €</td>
                     <td></td>
                 </tr>
-                <tr>
+                <tr class="order">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td><a class="btn btn-success" (click)="makeOrder()">Commander</a></td>
                 </tr>
             </tbody>

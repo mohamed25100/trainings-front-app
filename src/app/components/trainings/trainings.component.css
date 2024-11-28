@@ -6,13 +6,13 @@
     text-align: center;
     align-content: center;
     color: white;
-    margin-top: -164px !important;
+    margin-top: -10.25rem !important;
 }
 #div-header h1{
-    font-size: 64px;
+    font-size: 4rem;
 }
 #div-header p{
-    font-size: 24px;
+    font-size: 1.5rem;
 }
 
 tr, th{
@@ -22,7 +22,7 @@ tr, th{
 }
 
 th, td {
-    padding: 12px;
+    padding: 0.75rem;
 }
 
 h1 {
@@ -30,8 +30,8 @@ h1 {
 }
 
 table {
-    max-width: 1120px;
-    margin: 12px auto;
+    max-width: 70rem;
+    margin: 0.75rem auto;
     table-layout: auto;
     width: 100%;
 }
