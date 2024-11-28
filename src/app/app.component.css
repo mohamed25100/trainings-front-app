@@ -5,7 +5,7 @@ nav a {
 }
 #Container {
     padding-top: 164px;
-    min-height: calc(100vh - 164px);
+    min-height: 100vh;
 }
 
 header {
@@ -25,7 +25,7 @@ nav a:hover {
 }
 
 nav {
-    max-width: 1120px;
+    max-width: 70rem;
     margin: auto;
     width: 100%;
     display: flex;
@@ -49,6 +49,16 @@ footer {
     justify-content: space-between;
     margin: 0 30px;
     height: 96px;
+}
+
+footer nav {
+    border-top: 1px solid #e6e6e6;
+    height: 100%;
+    align-items: center;
+}
+
+footer nav * {
+    margin-bottom: 0;
 }
 
 footer ul {
