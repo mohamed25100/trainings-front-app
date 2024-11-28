@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthenticateService } from './services/authenticate.service';
+import { CartService } from './services/cart.service';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +9,5 @@ import { AuthenticateService } from './services/authenticate.service';
 })
 export class AppComponent {
   title = 'trainings-front-app';
-  constructor(public authService: AuthenticateService) {}
+  constructor(public authService: AuthenticateService, public cartService: CartService) {}
 }

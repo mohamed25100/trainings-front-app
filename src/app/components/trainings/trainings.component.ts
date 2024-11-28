@@ -27,7 +27,8 @@ export class TrainingsComponent implements OnInit {
   onAddToCart(training: Training) {
     if (training.quantity > 0 && training.quantity <= 10) {
       this.cartService.addTraining(training);
-      this.router.navigateByUrl('cart');
+      //this.router.navigateByUrl('cart');
+      training.quantity = 1;
     }
     else {
       alert("la quantité dois être comprise entre 1 et 10");

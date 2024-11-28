@@ -19,7 +19,7 @@ export class CartService {
     this.loadCartFromLocalStorage(); // Charger le panier depuis localStorage au démarrage
     this.loadCustomerFromLocalStorage();
 
-   }
+  }
   loadCartFromLocalStorage() {
     const cartData = localStorage.getItem('cartMap');
     if (cartData) {
@@ -28,12 +28,12 @@ export class CartService {
     }
   }
 
-  addTraining(training: Training){
+  addTraining(training: Training) {
     if (this.cartMap.has(training.id)) {
       // Si la formation existe déjà, mettre à jour la quantité
       const existingTraining = this.cartMap.get(training.id);
       if (existingTraining) {
-        existingTraining.quantity = training.quantity;
+        existingTraining.quantity += training.quantity;
         this.cartMap.set(training.id, existingTraining);
       }
     } else {
@@ -46,7 +46,7 @@ export class CartService {
     this.cartMap.delete(id); // Supprimer via la clé
     this.saveCartToLocalStorage(); // Sauvegarde le panier
   }
-  getCartList(): Training[]{
+  getCartList(): Training[] {
     return Array.from(this.cartMap.values()); // Convertir en tableau pour l'affichage
   }
   saveCartToLocalStorage() {
@@ -72,10 +72,18 @@ export class CartService {
       this.customer = JSON.parse(customerData);
     }
   }
-  getAmount(){
+  getAmount() {
     var result = 0;
     this.getCartList().forEach(e => {
-      result += e.price*e.quantity;
+      result += e.price * e.quantity;
+    });
+    return result;
+  }
+
+  getQuantity() {
+    var result = 0;
+    this.getCartList().forEach(e => {
+      result += e.quantity;
     });
     return result;
   }
