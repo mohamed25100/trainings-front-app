@@ -1,0 +1,26 @@
+.login-container {
+margin: auto;
+padding-top: 15rem;
+width: 30rem;
+}
+.login-container h1{
+    text-align: start;
+    font-size: 48px;
+    font-weight: 600;
+    }
+.btn-dark {
+    margin-top: 1rem;
+    text-align: center;
+    width: 100%;
+}
+.new{
+background-color: #f6f6ff;
+color: #080808 ;
+}
+.form-group{
+    text-align: start;
+}
+form{
+    text-align: center;
+    margin-bottom: 5rem;
+}

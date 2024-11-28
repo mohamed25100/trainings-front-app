@@ -1,5 +1,5 @@
 <div class="login-container">
-    <h2>Login</h2>
+    <h1>Connexion</h1>
     <form (ngSubmit)="login()">
         <div class="form-group">
             <label for="username">Username:</label>
@@ -9,6 +9,7 @@
             <label for="password">Password:</label>
             <input id="password" type="password" class="form-control" [(ngModel)]="password" name="password" required />
         </div>
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-dark">Login</button>
+        <button type="submit" class="btn btn-dark new">Nouveau ? Créer un compte</button>
     </form>
 </div>
