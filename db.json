@@ -41,6 +41,83 @@
       "description": "pikachu",
       "price": 2150,
       "quantity": 0
+    },
+    {
+      "id": 7,
+      "name": "JavaScript",
+      "description": "Formation JavaScript/React 5 jours",
+      "price": 1800,
+      "quantity": 1
+    },
+    {
+      "id": 8,
+      "name": "Ruby",
+      "description": "Ruby on Rails 6 jours",
+      "price": 1600,
+      "quantity": 1
+    },
+    {
+      "id": 9,
+      "name": "C++",
+      "description": "C++ Programming for Beginners 7 jours",
+      "price": 1700,
+      "quantity": 1
+    },
+    {
+      "id": 10,
+      "name": "Swift",
+      "description": "iOS App Development with Swift 8 jours",
+      "price": 1200,
+      "quantity": 1
+    },
+    {
+      "id": 11,
+      "name": "Go",
+      "description": "Mastering Go Programming Language 6 jours",
+      "price": 900,
+      "quantity": 1
+    },
+    {
+      "id": 12,
+      "name": "Kotlin",
+      "description": "Kotlin for Android Development 5 jours",
+      "price": 1000,
+      "quantity": 1
+    },
+    {
+      "id": 13,
+      "name": "Machine Learning",
+      "description": "Introduction to Machine Learning 12 jours",
+      "price": 1500,
+      "quantity": 1
+    },
+    {
+      "id": 14,
+      "name": "AI Fundamentals",
+      "description": "AI and Deep Learning Basics 14 jours",
+      "price": 2000,
+      "quantity": 1
+    },
+    {
+      "id": 15,
+      "name": "Blockchain",
+      "description": "Blockchain Technology and Cryptocurrencies 10 jours",
+      "price": 700,
+      "quantity": 1
+    },
+    {
+      "id": 16,
+      "name": "Cybersecurity",
+      "description": "Introduction to Cybersecurity 7 jours",
+      "price": 2300,
+      "quantity": 1
+    },
+    {
+      "id": 17,
+      "name": "Data Science",
+      "description": "Data Science with Python 15 jours",
+      "price": 3200,
+      "quantity": 1
     }
   ]
 }
