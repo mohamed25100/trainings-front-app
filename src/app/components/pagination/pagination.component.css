@@ -1,0 +1,24 @@
+.page-item {
+    --bs-pagination-border-width: 0;
+    --bs-pagination-focus-bg: transparent;
+    --bs-pagination-hover-bg: transparent;
+    --bs-pagination-bg: transparent;
+    --bs-pagination-disabled-bg: transparent;
+    color: #111123 !important;
+    margin: 0 6px;
+}
+
+.page-item a {
+    color: #111123;
+}
+
+.active {
+    background-color: #d9d9d9;
+    border: 1px solid #111123;
+    color: #111123;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+}

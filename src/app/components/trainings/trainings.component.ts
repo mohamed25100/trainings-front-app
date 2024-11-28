@@ -10,11 +10,11 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./trainings.component.css']
 })
 export class TrainingsComponent implements OnInit {
-  listTrainings : Training[] | undefined;
-  error : string | undefined | null;
+  listTrainings: Training[] | undefined;
+  error: string | undefined | null;
   itemsPerPage = 3;
   currentPage = 1;
-  constructor(private cartService : CartService,private apiService : ApiService,private router : Router) { }
+  constructor(private cartService: CartService, private apiService: ApiService, private router: Router) { }
 
   ngOnInit(): void {
     this.getAllTrainings();
@@ -24,12 +24,12 @@ export class TrainingsComponent implements OnInit {
    * méthode permettant d'ajouter la formation au panier
    * @param training 
    */
-  onAddToCart(training:Training){
-    if(training.quantity > 0 && training.quantity <=10) {
-    this.cartService.addTraining(training);
-    this.router.navigateByUrl('cart');
+  onAddToCart(training: Training) {
+    if (training.quantity > 0 && training.quantity <= 10) {
+      this.cartService.addTraining(training);
+      this.router.navigateByUrl('cart');
     }
-    else{
+    else {
       alert("la quantité dois être comprise entre 1 et 10");
     }
   }
@@ -38,9 +38,9 @@ export class TrainingsComponent implements OnInit {
    */
   getAllTrainings() {
     this.apiService.getTrainings().subscribe({
-      next : (data) => this.listTrainings = data,
-      error : (err) => this.error = err.message,
-      complete : () => this.error = null
+      next: (data) => this.listTrainings = data,
+      error: (err) => this.error = err.message,
+      complete: () => this.error = null
     })
   }
 
@@ -48,10 +48,10 @@ export class TrainingsComponent implements OnInit {
     const start = (this.currentPage - 1) * this.itemsPerPage;
     const end = start + this.itemsPerPage;
 
-    return this.listTrainings?.slice(start,end);
+    return this.listTrainings?.slice(start, end);
   }
 
-  changePage(page: number){
+  changePage(page: number) {
     this.currentPage = page;
   }
 }

@@ -1,39 +1,69 @@
-nav a{
+nav a {
     color: white;
     text-decoration: none;
+    transition: all ease 0.5s;
 }
-nav{
+#Container {
+    padding-top: 164px;
+    min-height: calc(100vh - 164px);
+}
+
+header {
     display: flex;
     justify-content: space-between;
-    padding: 0 50px;
+    height: 164px;
+    align-items: center;
+    padding: 8px;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(17, 17, 35, 1) 0%, rgba(102, 102, 102, 0.1) 90%, rgba(102, 102, 102, 0) 100%);
+    color: white;
+    position: fixed;
 }
-nav li a{
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+nav {
+    max-width: 1120px;
+    margin: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav li a {
     border-radius: 10px;
     border: 2px solid white;
     padding: 10px 20px;
 }
+
 nav ul {
     display: flex;
     gap: 40px;
     list-style: none;
 }
 
-nav{
-    background: linear-gradient(180deg, rgba(17,17,35,1) 0%, rgba(17,17,35,0.7) 50%, rgba(102,102,102,0) 100%);    color: white;
-    padding: 30px;
-    position: fixed;
-    width: 100%;
-}
-footer{
+footer {
     display: flex;
     justify-content: space-between;
     margin: 0 30px;
+    height: 96px;
 }
-footer ul{
-    list-style: none;
+
+footer ul {
+    list-style: none; 
     display: flex;
     gap: 20px;
 }
-footer svg{
+
+footer svg {
     width: 20px;
+    opacity: 0.45;
+    transition: opacity ease 0.5s;
+    cursor: pointer;
+}
+
+footer svg:hover {
+    opacity: 1;
 }

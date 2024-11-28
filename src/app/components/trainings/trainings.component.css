@@ -1,11 +1,12 @@
 #div-header{
     background-image: url(../../../bg.jpg);
-    height: 100vh;
+    height: 600px;
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
     align-content: center;
     color: white;
+    margin-top: -164px !important;
 }
 #div-header h1{
     font-size: 64px;
@@ -15,7 +16,29 @@
 }
 
 tr, th{
-    background-color: black;
+    background-color: #111123;
     color: white;
-    padding: 20px;
+    vertical-align: middle;
+}
+
+th, td {
+    padding: 12px;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+table {
+    max-width: 1120px;
+    margin: 12px auto;
+    table-layout: auto;
+    width: 100%;
+}
+
+input {
+    text-align: center;
+    border: 0;
+    border-bottom: 1px solid #111123;
+    background-color: transparent;
 }
