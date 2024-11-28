@@ -1,45 +1,46 @@
-<div class="container">
-    <ng-container *ngIf="cartList && cartList.length>0">
-        <div class=" container-delete-cart">
-        <a class="btn btn-danger delete-cart" (click)="cartService.clearCart(); loadCart()">Vider mon panier</a>
+<div id="CartTop">
+    <h1>Mon Panier</h1>
+    <a *ngIf="cartList && cartList.length > 0" class="btn btn-danger delete-cart"
+        (click)="cartService.clearCart(); loadCart()">Vider mon panier</a>
+</div>
+
+<ng-container *ngIf="cartList && cartList.length > 0">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th width="48px">ID</th>
+                <th width="192px">NOM</th>
+                <th width="360px">DESCRIPTION</th>
+                <th class="align-quantity" width="40px">QUANTITÉ</th>
+                <th class="align-price" width="96px">Prix T.T.C.</th>
+                <th width="64px"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let training of cartList">
+                <td>{{training.id}}</td>
+                <td>{{training.name}}</td>
+                <td>{{training.description}}</td>
+                <td class="align-price">{{training.price | number:'0.2'}} €</td>
+                <td class="align-quantity">{{training.quantity}}</td>
+                <td><a class="btn btn-danger" (click)="deleteFromCartById(training.id)">Supprimer</a></td>
+            </tr>
+            <tr>
+                <td class="total">Total</td>
+                <td></td>
+                <td></td>
+                <td class="total align-price">{{total | number:'0.2'}} €</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="Actions">
+        <a id="BtnConfirm" class="btn btn-success" (click)="makeOrder()">Commander</a>
     </div>
-        <table class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th width="48px">ID</th>
-                    <th width="192px">NOM</th>
-                    <th width="360px">DESCRIPTION</th>
-                    <th class="align-quantity" width="40px">QUANTITÉ</th>
-                    <th class="align-price" width="96px">Prix T.T.C.</th>
-                    <th width="64px"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let training of cartList">
-                    <td>{{training.id}}</td>
-                    <td>{{training.name}}</td>
-                    <td>{{training.description}}</td>
-                    <td class="align-quantity" >{{training.quantity}}</td>
-                    <td  class="align-price" >{{training.price | number:'0.2'}} €</td>
-                    <td><a class="btn btn-danger" (click)="deleteFromCartById(training.id)">Supprimer</a></td>
-                </tr>
-                <tr>
-                    <td class="total">Total</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="total align-price" >{{total | number:'0.2'}} €</td>
-                    <td></td>
-                </tr>
-                <tr class="order">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a class="btn btn-success" (click)="makeOrder()">Commander</a></td>
-                </tr>
-            </tbody>
-        </table>
-    </ng-container>
+</ng-container>
+
+<div *ngIf="cartList && cartList.length == 0">
+    <p>Votre panier est void !</p>
+    <a id="BtnAccueil" class="btn btn-dark" routerLink="/">Retour à l'accueil</a>
 </div>

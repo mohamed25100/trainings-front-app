@@ -9,14 +9,14 @@ import { catchError, Observable, throwError } from 'rxjs';
 })
 export class ApiService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   public getTrainings() {
-    return this.http.get<Training[]>(environment.host+"/trainings");
+    return this.http.get<Training[]>(environment.host + "/trainings");
   }
 
-  public getTraining(id : number) {
-    return this.http.get<Training>(environment.host+"/trainings/"+id);
+  public getTraining(id: number) {
+    return this.http.get<Training>(environment.host + "/trainings/" + id);
   }
 
   addTraining(training: Training): Observable<Training> {
@@ -26,10 +26,11 @@ export class ApiService {
   }
 
   updateTraining(training: Training): Observable<Training> {
-    return this.http.put<Training>(`${environment.host}/trainings/${training.id}`,training).pipe(
+    return this.http.put<Training>(`${environment.host}/trainings/${training.id}`, training).pipe(
       catchError(this.handleError)
     );
   }
+  
   deleteTraining(trainingId: number): Observable<void> {
     return this.http
       .delete<void>(`${environment.host}/trainings/${trainingId}`)

@@ -9,6 +9,7 @@ export class AuthenticateService {
     { email: 'elbab@gmail.com', password: '1234', roles: ['ADMIN', 'USER'] },
     { email: 'hugo@gmail.com', password: '1234', roles: ['USER'] },
   ];
+
   // Clé secrète pour le chiffrement/déchiffrement (devrait idéalement provenir d'une variable d'environnement).
   private secretKey = 'mySuperSecretKey123!';
   constructor() { }
@@ -23,6 +24,7 @@ export class AuthenticateService {
     const bytes = CryptoJS.AES.decrypt(cipherText, this.secretKey);
     return JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
   }
+
   isAdmin(): boolean {
     const user = this.getLoggedInUser();
     return user?.roles?.includes('ADMIN') || false;
@@ -39,9 +41,9 @@ export class AuthenticateService {
       localStorage.setItem('user', this.encryptData(user));
       return true;
     }
+
     return false;
   }
-
 
   logout(): void {
     localStorage.removeItem('user');
@@ -50,6 +52,7 @@ export class AuthenticateService {
   isLoggedIn(): boolean {
     return !!localStorage.getItem('user');
   }
+
   getLoggedInUser(): any {
     const encryptedUser = localStorage.getItem('user');
     if (encryptedUser) {

@@ -3,13 +3,19 @@
     <a routerLink="/">FormaShop</a>
     <ul>
       <a routerLink="/trainings">Formations</a>
-      <a routerLink="/cart">Panier <span *ngIf="cartService.getCartList().length > 0">({{ this.cartService.getQuantity() }})</span></a>
+      <a routerLink="/cart">Panier <span *ngIf="cartService.getCartList().length > 0">({{ this.cartService.getQuantity()
+          }})</span></a>
       <li *ngIf="!authService.isLoggedIn()"><a routerLink="/login">Connexion</a></li>
       <li *ngIf="authService.isAdmin()"><a routerLink="/admin">Administration</a></li>
       <li *ngIf="authService.isLoggedIn()"><a (click)="authService.logout()">Logout</a></li>
     </ul>
   </nav>
 </header>
+
+<section id="Welcome" *ngIf="welcomePage">
+  <h2>Devenez le meilleur.</h2>
+  <p>Grâce à nos tutos FormaShop, vous avalerez la concurrence comme un Python.</p>
+</section>
 
 <section id="Container">
   <router-outlet></router-outlet>

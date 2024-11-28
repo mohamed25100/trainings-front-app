@@ -15,6 +15,7 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
     this.getAllTrainings();
   }
+
   getAllTrainings() {
     this.apiService.getTrainings().subscribe({
       next: (data) => this.listTrainings = data,

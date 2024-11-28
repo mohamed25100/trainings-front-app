@@ -34,6 +34,7 @@ export class TrainingsComponent implements OnInit {
       alert("la quantité dois être comprise entre 1 et 10");
     }
   }
+  
   /**
    * méthode permettant de recuperer les formations
    */

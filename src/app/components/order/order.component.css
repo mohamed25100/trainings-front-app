@@ -1,0 +1,55 @@
+.container {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
+}
+
+.left {
+    width: 20rem;
+}
+
+.left * {
+    --bs-table-striped-bg: transparent !important;
+    --bs-table-hover-bg: transparent !important;
+    background-color: transparent !important;
+    border: 0;
+}
+
+tr,
+th {
+    background-color: #111123;
+    color: #f6f6ff;
+    vertical-align: middle;
+}
+
+th,
+td {
+    padding: 0.75rem;
+}
+
+table {
+    max-width: 56rem;
+    margin: 0.75rem auto;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.align-quantity {
+    text-align: center;
+}
+
+.align-price {
+    text-align: right;
+}
+
+.total {
+    font-weight: 600;
+}
+
+.container {
+    padding-top: 2rem;
+}
+
+#Actions {
+    text-align: right;
+}

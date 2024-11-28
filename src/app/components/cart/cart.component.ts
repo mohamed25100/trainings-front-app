@@ -10,30 +10,34 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  cartList : Training[] | undefined;
-  total :  number | undefined;
-  constructor(public cartService : CartService,private authService: AuthenticateService,private router:Router) { }
+  cartList: Training[] | undefined;
+  total: number | undefined;
+  constructor(public cartService: CartService, private authService: AuthenticateService, private router: Router) { }
 
   ngOnInit(): void {
     this.cartList = this.cartService.getCartList();
     this.total = this.getTotal();
   }
+
   loadCart() {
     this.cartList = this.cartService.getCartList();
     this.total = this.getTotal();
   }
-  getTotal(){
+
+  getTotal() {
     var result = 0;
     this.cartService.getCartList().forEach(e => {
-      result += e.price*e.quantity;
+      result += e.price * e.quantity;
     });
     return result;
   }
-  deleteFromCartById(id:number){
+
+  deleteFromCartById(id: number) {
     this.cartService.removeFromCart(id);
     this.loadCart();
   }
-  makeOrder(){
+  
+  makeOrder() {
     if (this.cartList && this.cartList.length > 0) {
       if (this.authService.isLoggedIn()) {
         // Si l'utilisateur est connecté, procéder à la commande

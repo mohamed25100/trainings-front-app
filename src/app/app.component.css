@@ -3,15 +3,11 @@ nav a {
     text-decoration: none;
     transition: all ease 0.5s;
 }
-#Container {
-    padding-top: 164px;
-    min-height: 100vh;
-}
 
 header {
     display: flex;
     justify-content: space-between;
-    height: 164px;
+    height: 10rem;
     align-items: center;
     padding: 8px;
     width: 100%;
@@ -62,7 +58,7 @@ footer nav * {
 }
 
 footer ul {
-    list-style: none; 
+    list-style: none;
     display: flex;
     gap: 20px;
 }
@@ -76,4 +72,15 @@ footer svg {
 
 footer svg:hover {
     opacity: 1;
+}
+
+#Welcome {
+    background-image: url(../bg.jpg);
+    height: 600px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    align-content: center;
+    color: white;
+    margin-bottom: -10rem;
 }

@@ -8,6 +8,7 @@ import { ApiService } from 'src/app/services/api.service';
   templateUrl: './add-edit.component.html',
   styleUrls: ['./add-edit.component.css']
 })
+
 export class AddEditComponent implements OnInit {
   training: Training = { id: 0, name: '', description: '', price: 0, quantity: 0 };
   isEditMode = false;

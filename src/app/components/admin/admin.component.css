@@ -1,0 +1,39 @@
+#AdminTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+table {
+    table-layout: auto;
+}
+
+.align-quantity {
+    text-align: center;
+}
+
+.align-price {
+    text-align: right;
+}
+
+.total {
+    font-weight: 600;
+}
+
+tr,
+th {
+    background-color: #111123;
+    color: #f6f6ff;
+    vertical-align: middle;
+}
+
+th,
+td {
+    padding: 0.75rem;
+}
+
+.delete-cart {
+    background-color: transparent;
+    color: #a00;
+    margin-right: 1rem;
+}

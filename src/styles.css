@@ -1,6 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
 
 
-body{
+body {
     font-family: 'Atkinson Hyperlegible';
+    background-color: #f6f6f6;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 4rem;
+    text-align: left;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 4rem;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+#Container {
+    max-width: 70rem;
+    margin: auto;
+    padding-top: 10rem;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: column;
+}
+
+input,
+textarea {
+    text-align: left !important;
+    border-radius: 0 !important;
+    border: 0 !important;
+    border-bottom: 1px solid #111123 !important;
+    background-color: transparent !important;
 }

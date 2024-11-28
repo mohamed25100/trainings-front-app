@@ -6,7 +6,7 @@ import { AuthenticateService } from '../services/authenticate.service';
   providedIn: 'root'
 })
 export class AdminGuard implements CanActivate {
-  constructor(private authService:AuthenticateService,private router: Router){}
+  constructor(private authService: AuthenticateService, private router: Router) { }
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
@@ -18,5 +18,4 @@ export class AdminGuard implements CanActivate {
       return false;
     }
   }
-  
 }

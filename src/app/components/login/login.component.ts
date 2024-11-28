@@ -7,11 +7,11 @@ import { AuthenticateService } from 'src/app/services/authenticate.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
   username: string = '';
   password: string = '';
-  constructor(private authService: AuthenticateService, private router: Router,private route: ActivatedRoute) {}
-
+  constructor(private authService: AuthenticateService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
@@ -24,5 +24,4 @@ export class LoginComponent implements OnInit {
       alert('Nom d\'utilisateur ou mot de passe invalide');
     }
   }
-
 }
