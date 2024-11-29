@@ -6,7 +6,7 @@ import { OrderComponent } from './components/order/order.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { AdminGuard } from './components/admin.guard';
+import { AdminGuard } from './guards/admin.guard';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AddEditComponent } from './components/add-edit/add-edit.component';
