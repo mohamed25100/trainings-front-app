@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Training } from '../model/Training.model';
 import { Customer } from '../model/Customer.model';
-import { environment } from 'src/environments/environment';
-import * as CryptoJS from 'crypto-js';
 
 @Injectable({
   providedIn: 'root'
@@ -23,22 +21,8 @@ export class CartService {
     this.loadCustomerFromLocalStorage();
   }
 
-  // Clé secrète pour le chiffrement/déchiffrement (devrait idéalement provenir d'une variable d'environnement).
-  private secretKey = environment.secretKey;
-
-  // Chiffrer les données avant de les stocker dans le localStorage.
-  private encryptData(data: any): string {
-    return CryptoJS.AES.encrypt(JSON.stringify(data), this.secretKey).toString();
-  }
-
-  // Déchiffrer les données lors de la récupération depuis le localStorage
-  private decryptData(cipherText: string): any {
-    const bytes = CryptoJS.AES.decrypt(cipherText, this.secretKey);
-    return JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-  }
-
   loadCartFromLocalStorage() {
-    const cartData = this.decryptData(localStorage.getItem('cartMap') ?? "");
+    const cartData = localStorage.getItem('cartMap');
 
     if (cartData) {
       const parsedData: [number, Training][] = JSON.parse(cartData);
@@ -75,12 +59,12 @@ export class CartService {
 
   saveCartToLocalStorage() {
     const cartArray = Array.from(this.cartMap.entries()); // Convertir en tableau [clé, valeur]
-    localStorage.setItem('cartMap', this.encryptData(JSON.stringify(cartArray)));
+    localStorage.setItem('cartMap', JSON.stringify(cartArray));
   }
 
   saveCustomer(customer: Customer) {
     this.customer = customer;
-    localStorage.setItem('customer', this.encryptData(JSON.stringify(customer)));
+    localStorage.setItem('customer', JSON.stringify(customer));
   }
 
   getCustomer() {
@@ -96,7 +80,7 @@ export class CartService {
     const customerData = localStorage.getItem('customer');
 
     if (customerData) {
-      this.customer = this.decryptData(JSON.parse(customerData));
+      this.customer = JSON.parse(customerData);
     }
   }
 
