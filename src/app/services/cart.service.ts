@@ -35,8 +35,8 @@ export class CartService {
       // Si la formation existe déjà, mettre à jour la quantité
       const existingTraining = this.cartMap.get(training.id);
 
-      if (existingTraining && existingTraining.quantity < this.MAX_ITEM_QUANTITY) {
-        existingTraining.quantity = Math.min(this.MAX_ITEM_QUANTITY, existingTraining.quantity + training.quantity);
+      if (existingTraining && existingTraining.quantity < this.MAX_ITEM_QUANTITY && training.quantity > 0) {
+        existingTraining.quantity = Math.min(this.MAX_ITEM_QUANTITY, existingTraining.quantity + Math.floor(training.quantity));
         this.cartMap.set(training.id, existingTraining);
       }
     } else {
