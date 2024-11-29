@@ -37,10 +37,10 @@
     },
     {
       "id": 6,
-      "name": "pikachu",
-      "description": "pikachu",
+      "name": "Dressage de Pokémon",
+      "description": "pika ? chuuu !",
       "price": 2150,
-      "quantity": 0
+      "quantity": 1
     },
     {
       "id": 7,
@@ -118,6 +118,13 @@
       "description": "Data Science with Python 15 jours",
       "price": 3200,
       "quantity": 1
+    },
+    {
+      "id": 18,
+      "name": "Unreal Engine 5",
+      "description": "Apprenez à créer des choses fantastiques avec le moteur 3D le plus puissant",
+      "price": 9500,
+      "quantity": 0
     }
   ]
 }
