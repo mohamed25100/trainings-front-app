@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
 import * as CryptoJS from 'crypto-js';
 
@@ -11,7 +12,7 @@ export class AuthenticateService {
   ];
 
   // Clé secrète pour le chiffrement/déchiffrement (devrait idéalement provenir d'une variable d'environnement).
-  private secretKey = 'mySuperSecretKey123!';
+  private secretKey = environment.secretKey;
   constructor() { }
 
   // Chiffrer les données avant de les stocker dans le localStorage.
